@@ -44,7 +44,7 @@ public class Logger {
 	
 		Log my_log;
 		try {
-			my_log = new Log("logger.txt");
+			my_log = new Logger("logger.txt");
 			my_log.logger.info("the addition equals to : "+Result);
 		} catch (SecurityException e) {
 			// TODO Auto-generated catch block
