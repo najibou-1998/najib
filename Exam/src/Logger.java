@@ -1,8 +1,13 @@
 import java.io.File;
-	import java.io.IOException;
-	import java.util.logging.FileHandler;
-	import java.util.logging.Logger;
-	import java.util.logging.SimpleFormatter;
+import java.io.IOException;
+import java.util.logging.Logger;
+import java.util.logging.FileHandler;
+
+import java.util.logging.SimpleFormatter;
+
+
+
+
 public class Logger {
 	
 	
@@ -10,37 +15,37 @@ public class Logger {
 
 
 
-	public class Log {
+	
 		public Logger logger;
-		FileHandler fh;
+		private FileHandler filehandler;
 		
-		public Log(String file_name) throws SecurityException, IOException
+		public Logger(String file) throws SecurityException, IOException
 		{
-			File f=new File(file_name);
+			File f=new File(file);
 			if(!f.exists())
 			{
 				f.createNewFile();
 			}
 			
-			fh=new FileHandler(file_name, true);
+			filehandler=new FileHandler(file, true);
 			logger=Logger.getLogger("test");
-			logger.addHandler(fh);
-			SimpleFormatter formatter=new SimpleFormatter();
-			fh.setFormatter(formatter);
+			logger.addHandler(filehandler);
+			SimpleFormatter simpleformatter=new SimpleFormatter();
+			filehandler.setFormatter(simpleformatter);
 		}
 
-	}
-	
-	
-	ublic static void main(String[] args) {
 
-		String_Calculator obj=new String_Calculator();
-		int Result=obj.Add("2\n1");
-		//System.out.println(res);
+	
+	
+	public static void main(String[] args) {
+
+		String_Calculator Stringcalcul=new String_Calculator();
+		int Result=Stringcalcul.Add("7\n21");
+	
 		Log my_log;
 		try {
-			my_log = new Log("log.txt");
-			my_log.logger.info("The sum is: "+res);
+			my_log = new Log("logger.txt");
+			my_log.logger.info("the addition equals to : "+Result);
 		} catch (SecurityException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
