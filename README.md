@@ -1,4 +1,4 @@
 # hello-world
 
-# my name is nadjib zakaria i am a master student at miskolc university in computer science major
+# you can find here exam solution and anagram homework solutuion in diffrent folders.
 
