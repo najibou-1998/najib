@@ -1,4 +1,4 @@
 # hello-world
 
-# you can find here exam solution and anagram homework solutuion in diffrent folders.
+# you can find here the exam solution and anagram homework solution in diffrent folders.
 
