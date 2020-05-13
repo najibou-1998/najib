@@ -38,13 +38,13 @@ public class PasswordVerifier {
 	    List Decision = new ArrayList();
 	     errors = new ArrayList<String>();
 	     
-	    boolean flag=true;
+	   
 	    int Correct_cases = 0;
 	    int Cases_should_be_true =0;
 
 	    if (passwordhere.trim().isEmpty()) {
 	    	errors.add("Password must not be null !!");
-	    	throw new IllegalArgumentException("Password must not be null !!");
+	    	//throw new IllegalArgumentException("Password must not be null !!");
 	    	
         }
 	    	
@@ -53,7 +53,7 @@ public class PasswordVerifier {
 	 
 	   if (passwordhere.length() < 8) {
 		   errors.add("Password lenght must have at least 8 character !!");
-		   throw new IllegalArgumentException("Password lenght must have at least 8 character !!");
+		   //throw new IllegalArgumentException("Password lenght must have at least 8 character !!");
 		  
 	    	  }
 	    else { Correct_cases++; Cases_should_be_true++; }
@@ -61,7 +61,7 @@ public class PasswordVerifier {
 	   
 	    if (!lowerCasePatten.matcher(passwordhere).find()) {
 	    	errors.add("Password must have atleast one lowercase character !!");
-	    	throw new IllegalArgumentException("Password must have atleast one lowercase character !!");
+	    	//throw new IllegalArgumentException("Password must have atleast one lowercase character !!");
 	    	
 	    	 }
 	    else { Correct_cases++; Cases_should_be_true++; }
@@ -69,7 +69,7 @@ public class PasswordVerifier {
 	    
 	    if (!UpperCasePatten.matcher(passwordhere).find()) {
 	    	errors.add("Password must have atleast one uppercase character !!");
-	    	throw new IllegalArgumentException("Password must have atleast one uppercase character !!");
+	    	//throw new IllegalArgumentException("Password must have atleast one uppercase character !!");
 	    
 	    	 }
 	    else Correct_cases++; 
@@ -77,7 +77,7 @@ public class PasswordVerifier {
 	     
 	     if (!digitCasePatten.matcher(passwordhere).find()) {
 	    	 errors.add("Password must have atleast one digit character !!");
-	    		throw new IllegalArgumentException("Password must have atleast one digit character !!");
+	    		//throw new IllegalArgumentException("Password must have atleast one digit character !!");
 	    		
 	    	  }
 	     else Correct_cases++; 
@@ -91,69 +91,7 @@ public class PasswordVerifier {
 		
 	}
 
-	  @Test
-	    public final void passwordShouldBeAtLeast8Chars() {
-	    	RuntimeException exception = null;
-	        try {
-	            verify("messi");
-	        } catch (RuntimeException e) {
-	            exception = e;
-	        }
-	        Assert.assertNotNull(exception);
-	    	Assert.assertEquals("Password lenght must have at least 8 character !!", exception.getMessage());
-	    }
-	    
-	    @Test
-	    public final void passwordMustNotBeNull() {
-	    	RuntimeException exception = null;
-	        try {
-	            verify("");
-	        } catch (RuntimeException e) {
-	            exception = e;
-	        }
-	        Assert.assertNotNull(exception);
-	    	Assert.assertEquals("Password must not be null !!", exception.getMessage());
-	    }
-	    @Test
-	    public final void passwordHaveOneUpperAtLeast() {
-	    	RuntimeException exception = null;
-	        try {
-	            verify("messi1998");
-	        } catch (RuntimeException e) {
-	            exception = e;
-	        }
-	        Assert.assertNotNull(exception);
-	    	Assert.assertEquals("Password must have atleast one uppercase character !!", exception.getMessage());
-	    }
-	    
-	    
-	    
-	    @Test
-	    public final void passwordHaveOneLowerAtLeast() {
-	    	RuntimeException exception = null;
-	        try {
-	            verify("MESSI1998");
-	        } catch (RuntimeException e) {
-	            exception = e;
-	        }
-	        Assert.assertNotNull(exception);
-	    	Assert.assertEquals("Password must have atleast one lowercase character !!", exception.getMessage());
-	    }
-	    
-	    
-	    
-	    @Test
-	    public final void passwordHaveOneNumberAtLeast() {
-	    	RuntimeException exception = null;
-	        try {
-	            verify("messiMessi");
-	        } catch (RuntimeException e) {
-	            exception = e;
-	        }
-	        Assert.assertNotNull(exception);
-	    	Assert.assertEquals("Password must have atleast one digit character !!", exception.getMessage());
-	    }
-    
+	
     
  
     public static void main(String[] args) throws ArithmeticException {
@@ -166,7 +104,7 @@ public class PasswordVerifier {
         pass.setBounds(50, 50, 150, 50);
         b.addActionListener(new ActionListener(){  
             public void actionPerformed(ActionEvent e){  
-            
+                
          	    List Desision_array = new ArrayList();
          	    
          	    Desision_array=verify(pass.getText());
@@ -176,6 +114,7 @@ public class PasswordVerifier {
          	    
          	    
                  for (String error : errors) {
+                	 System.out.println("Errors :");
                      System.out.println(error);
                  }
 
